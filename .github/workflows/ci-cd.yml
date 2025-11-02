@@ -1,0 +1,18 @@
+name: CI-CD
+on: {push: {branches: ["main"]}, workflow_dispatch: {}}
+env:
+  ECR_REPO: webapp-ecs-cicd
+  AWS_REGION: ap-south-1
+  CD_APP: WebAppEcsApp
+  CD_DG: WebAppEcsDG
+  ECS_CLUSTER: webapp-ecs
+  ECS_SERVICE: webapp-svc
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: npm ci && npm test
+        working-directory: app

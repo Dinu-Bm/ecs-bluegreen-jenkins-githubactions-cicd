@@ -1,0 +1,16 @@
+{
+  "name": "webapp-ecs-cicd",
+  "version": "1.0.0",
+  "description": "Minimal Express web app for ECS blue-green CI/CD demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node ./__tests__/server.test.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
